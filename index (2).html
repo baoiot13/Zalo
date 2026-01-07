@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zalo UI - Oanh Ngáo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #e2e8f0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 380px;
+            height: 750px;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Header */
+        .header {
+            background-color: #0084FF;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-icon { font-size: 24px; cursor: pointer; }
+        .avatar {
+            width: 42px;
+            height: 42px;
+            background-image: url('https://i.pravatar.cc/150?u=oanh'); /* Ảnh demo */
+            background-size: cover;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .user-info { flex-grow: 1; }
+        .user-info .name { font-weight: 600; font-size: 17px; }
+        .user-info .status { font-size: 12px; opacity: 0.9; }
+
+        /* Chat Body */
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-30d77062d11f.png'); /* Background chat nhẹ */
+        }
+
+        .time-divider {
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+            margin: 15px 0 5px;
+            background: rgba(255,255,255,0.5);
+            padding: 2px 10px;
+            border-radius: 10px;
+            align-self: center;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 9px 14px;
+            border-radius: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+            position: relative;
+            word-wrap: break-word;
+        }
+
+        .message.received {
+            align-self: flex-start;
+            background-color: white;
+            color: #050505;
+            border-top-left-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .message.sent {
+            align-self: flex-end;
+            background-color: #e1f1ff;
+            color: #050505;
+            border-top-right-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .msg-time {
+            font-size: 10px;
+            color: #8e8e8e;
+            margin-top: 4px;
+            display: block;
+        }
+        .sent .msg-time { text-align: right; }
+
+        /* Footer */
+        .footer {
+            background-color: white;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 1px solid #ddd;
+        }
+
+        .input-box {
+            flex-grow: 1;
+            background-color: #f0f2f5;
+            border: none;
+            outline: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 15px;
+        }
+
+        .action-icons { color: #0084FF; font-size: 20px; cursor: pointer; }
+
+        .seen-status {
+            font-size: 11px;
+            color: #888;
+            align-self: flex-end;
+            margin-top: -5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="header">
+        <span class="back-icon">‹</span>
+        <div class="avatar"></div>
+        <div class="user-info">
+            <div class="name">Oanh Ngáo 🐢</div>
+            <div class="status">Truy cập 2 giờ trước</div>
+        </div>
+        <div style="display: flex; gap: 15px; font-size: 18px;">📞 🎥 ☰</div>
+    </div>
+
+    <div class="chat-body">
+        
+        <div class="time-divider">Thứ Hai</div>
+
+        <div class="message sent">
+            Tối làm vài ván FF k m? Kéo t lên kc cái coi, rớt thảm vcl.
+            <span class="msg-time">19:05</span>
+        </div>
+
+        <div class="message received">
+            Vãi, t đang cày dở cái event bên Roblox, tí đi m. 
+            <span class="msg-time">19:10</span>
+        </div>
+
+        <div class="message received">
+            Mà hôm nay bà Cô dạy Lý gắt vch, tí t gửi m cái ảnh chụp bài tập về nhà, làm hộ t với nhé hihi.
+            <span class="msg-time">19:11</span>
+        </div>
+
+        <div class="message sent">
+            Mơ đi con :))) Lo mà làm đi r chơi.
+            <span class="msg-time">19:12</span>
+        </div>
+
+        <div class="time-divider">Hôm qua</div>
+
+        <div class="message received">
+            M nghe tin gì chưa? Thằng Nam lớp mình mới bị bồ đá kìa, thấy đăng story buồn vãi chưởng.
+            <span class="msg-time">21:30</span>
+        </div>
+
+        <div class="message sent">
+            Gke z, thảo nào tối nay t thấy nó off game sớm. 
+            <span class="msg-time">21:35</span>
+        </div>
+
+        <div class="time-divider">Hôm qua, 19:26</div>
+
+        <div class="message sent">
+            Mai đi học thêm đúng k m? Nhớ mang cuốn đề cương cho t mượn nhaaa.
+            <span class="msg-time">19:26</span>
+        </div>
+
+        <div class="message received">
+            Ừa đúng r, 1h15 chiều mai mới vô học mà lo gì. Để t bỏ sẵn vô cặp.
+            <span class="msg-time">19:28</span>
+        </div>
+
+        <div class="message sent">
+            Okieee, mà mai rước t nha.
+            <span class="msg-time">19:29</span>
+        </div>
+
+        <div class="message received">
+            Đc r mai t qua. Đợi đó đi.
+            <span class="msg-time">19:30</span>
+        </div>
+
+        <div class="time-divider">Hôm nay</div>
+
+        <div class="message sent">
+            Lô, chuẩn bị đi chưa m ơi? 
+            <span class="msg-time">11:10</span>
+        </div>
+
+        <div class="message sent">
+            Alooo, 11h15 r nè, sắp trễ r m uiii. Rep ib t cái coi!! Rước t sớm còn đi ăn gì nữa.
+            <span class="msg-time">11:15</span>
+        </div>
+        
+        <div class="seen-status">Đã nhận</div>
+
+    </div>
+
+    <div class="footer">
+        <span class="action-icons">😊</span>
+        <input type="text" class="input-box" placeholder="Tin nhắn">
+        <span class="action-icons">🎙️</span>
+        <span class="action-icons">🖼️</span>
+        <span class="action-icons">➕</span>
+    </div>
+</div>
+
+</body>
+</html>
